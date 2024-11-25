@@ -7,11 +7,17 @@ public class Main {
        final GameBoard snakeBoard = new GameBoard();
        final SnakeObject snake = new SnakeObject();
 
-
-        System.out.println("Snake coordinates: X (row)=" + snake.getX() + ", Y (col)=" + snake.getY());
+        System.out.println(snake.getSnakeCoordinates());
         snakeBoard.placeGameObject(snake);
         snakeBoard.printBoard();
 
+        ////////////////////////////////////////////////
+
+        snake.move(Movement.Right);
+
+        System.out.println(snake.getSnakeCoordinates());
+        snakeBoard.placeGameObject(snake);
+        snakeBoard.printBoard();
 
 
     }

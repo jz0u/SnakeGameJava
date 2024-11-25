@@ -10,7 +10,7 @@ public class GameBoard {
     }
 
     public void placeGameObject(GameObject object){
-        board[object.getX()][object.getY()]=object;
+        board[object.getX()][object.getY()] = object;
     }
 
     public void printBoard() {
