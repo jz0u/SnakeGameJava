@@ -5,8 +5,16 @@ public final class Constants {
     }
 
     public static final class BoardSize{
-        public static final int X = 100;
-        public static final int Y = 100;
+        public static final int ROW = 10;
+        public static final int COL = 10;
+
+    }
+    public static final class SnakeStartingPosition{
+
+        public static final int ROW = BoardSize.ROW/2;
+        public static final int COL = BoardSize.COL/2;
+
+
     }
 
 }
