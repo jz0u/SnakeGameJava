@@ -4,41 +4,35 @@ import res.Constants;
 import res.Movement;
 
 public class SnakeObject extends GameObject {
-
+    // Current direction of snake movement
     private Movement currentDirection;
 
-    public SnakeObject(){
+    public SnakeObject() {
         super(Constants.SnakeStartingPosition.ROW, Constants.SnakeStartingPosition.COL);
         setName("Snake");
-        currentDirection = Movement.UP;
+        currentDirection = Movement.UP;  // Snake starts moving upward
     }
 
-    public void move(Movement direction){
-        if(!isOpposite(direction)){
-            currentDirection = direction;
-            setX(getX() + direction.getDeltaX());
-            setY(getY() + direction.getDeltaY());
+    public void move(Movement newDirection) {
+        // Only change direction if it's not opposite to current direction
+        if (!isOpposite(newDirection)) {
+            currentDirection = newDirection;
+            // Update position based on direction
+            setX(getX() + newDirection.getDeltaX());
+            setY(getY() + newDirection.getDeltaY());
         }
-       /* else{
-            setX(getX() + currentDirection.getDeltaX());
-            setY(getY() + currentDirection.getDeltaY());
-        }*/
     }
 
-    public String getSnakeCoordinates (){
-        return "Snake coordinates:" + "(" + this.getX() + ","+ this.getY() + ")";
-    }
-
-    @Override
-    public String toString(){
-
-        return "S";
-    }
-
-    public boolean isOpposite(Movement movement){
-        return(currentDirection == Movement.UP && movement == Movement.DOWN) ||
+    // Check if new direction is opposite to current direction
+    private boolean isOpposite(Movement movement) {
+        return (currentDirection == Movement.UP && movement == Movement.DOWN) ||
                 (currentDirection == Movement.DOWN && movement == Movement.UP) ||
                 (currentDirection == Movement.LEFT && movement == Movement.RIGHT) ||
                 (currentDirection == Movement.RIGHT && movement == Movement.LEFT);
+    }
+
+    @Override
+    public String toString() {
+        return "S";  // Snake representation on the board
     }
 }
