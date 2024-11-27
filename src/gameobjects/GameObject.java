@@ -1,3 +1,7 @@
+package gameobjects;
+
+import exception.GameExceptions;
+
 public abstract class GameObject {
     private String name;
     private int x;

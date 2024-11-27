@@ -1,5 +1,6 @@
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import gameobjects.SnakeObject;
+import res.Movement;
+import board.GameBoard;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,17 +8,14 @@ public class Main {
        final GameBoard snakeBoard = new GameBoard();
        final SnakeObject snake = new SnakeObject();
 
-        System.out.println(snake.getSnakeCoordinates());
-        snakeBoard.placeGameObject(snake);
-        snakeBoard.printBoard();
+        snakeBoard.refresh(snake);
 
-        ////////////////////////////////////////////////
+        snake.move(Movement.RIGHT);
+        snakeBoard.refresh(snake);
 
-        snake.move(Movement.Right);
+        snake.move(Movement.LEFT);
+        snakeBoard.refresh(snake);
 
-        System.out.println(snake.getSnakeCoordinates());
-        snakeBoard.placeGameObject(snake);
-        snakeBoard.printBoard();
 
 
     }

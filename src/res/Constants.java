@@ -1,7 +1,9 @@
+package res;
+
 public final class Constants {
 
     private Constants(){
-        throw new AssertionError("Constants class should not be instantiated");
+        throw new AssertionError("res.Constants class should not be instantiated");
     }
 
     public static final class BoardSize{

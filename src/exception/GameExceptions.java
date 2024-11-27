@@ -1,3 +1,5 @@
+package exception;
+
 public class GameExceptions {
 
     public static class GameException extends RuntimeException {

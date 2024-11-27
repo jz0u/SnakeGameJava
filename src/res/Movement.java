@@ -1,8 +1,10 @@
+package res;
+
 public enum Movement {
     UP(-1,0),
-    Down(1,0),
-    Left(0,-1),
-    Right(0,1);
+    DOWN(1,0),
+    LEFT(0,-1),
+    RIGHT(0,1);
 
     private final int deltaX;
     private final int deltaY;
@@ -14,5 +16,8 @@ public enum Movement {
 
     public int getDeltaX() { return deltaX; }
     public int getDeltaY() { return deltaY; }
+
+
+
 }
 
