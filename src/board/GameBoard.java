@@ -5,6 +5,7 @@ import gameobjects.GameObject;
 import res.Constants;
 
 public class GameBoard {
+    private GameObject food = null;
     private final GameObject[][] board = new GameObject[Constants.BoardSize.ROW][Constants.BoardSize.COL];
 
     public GameBoard() {
@@ -17,6 +18,11 @@ public class GameBoard {
     }
 
     // Update the game board with new snake position
+    public void addFood(GameObject food){
+        board[food.getX()][food.getY()] = food;
+        this.food = food;
+    }
+
     public void refresh(GameObject snake) {
         // Clear the board
         for (int i = 0; i < board.length; i++) {
@@ -24,13 +30,17 @@ public class GameBoard {
                 board[i][j] = new EmptyTile();
             }
         }
-
+        // Place the food if it exists
+        if (food != null) {
+            board[food.getX()][food.getY()] = food;
+        }
         // Place the snake in its new position
         board[snake.getX()][snake.getY()] = snake;
 
         // Display the updated board
         printBoard();
     }
+
 
     // Print the current state of the board
     public void printBoard() {
